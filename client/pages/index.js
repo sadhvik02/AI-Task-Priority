@@ -4,7 +4,7 @@ import TaskList from "../components/TaskList";
 import EditTaskModal from "../components/EditTaskModal";
 
 // Backend API URL
-const BACKEND_BASE = "http://localhost:4000";
+const BACKEND_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
 
 export default function Home() {
   const [tasks, setTasks] = useState([]);
