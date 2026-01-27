@@ -59,7 +59,16 @@ This project is a task management application that uses Google's Gemini AI to pr
 
 ## Features
 
-- **Add Tasks**: Create tasks with title, description, due date, urgency, and workload.
+- **User Authentication**: Secure Login and Registration (JWT-based). Users can only see their own tasks.
+- **Task Organization**: Categorize tasks (e.g., Work, Personal) for better management.
+- **Add Tasks**: Create tasks with title, description, due date, urgency, workload, and category.
 - **AI Ranking**: Click "Rank Tasks with AI" to have Gemini analyze and prioritize your tasks.
 - **Fallback Ranking**: If AI is unavailable, a rule-based algorithm is used.
+
+## API Endpoints
+
+- `POST /api/auth/register` - Create a new account
+- `POST /api/auth/login` - Login and receive a token
+- `GET /api/tasks` - List user's tasks (Headder `Authorization: Bearer <token>`)
+
 # AI-Task-Priority

@@ -1,5 +1,13 @@
+CREATE TABLE IF NOT EXISTS users (
+  id SERIAL PRIMARY KEY,
+  username VARCHAR(255) UNIQUE NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
 CREATE TABLE IF NOT EXISTS tasks (
   id SERIAL PRIMARY KEY,
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   title VARCHAR(255) NOT NULL,
   description TEXT,
   due_date TIMESTAMP,
@@ -7,5 +15,6 @@ CREATE TABLE IF NOT EXISTS tasks (
   workload INTEGER DEFAULT 1,
   priority_score INTEGER,
   priority_reason TEXT,
+  category VARCHAR(50) DEFAULT 'General',
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

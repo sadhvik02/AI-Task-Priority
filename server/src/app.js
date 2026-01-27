@@ -3,6 +3,7 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import { tasksRouter } from "./routes/tasks.js";
+import { authRouter } from "./routes/auth.js";
 import { initDb } from "./db.js";
 
 dotenv.config();
@@ -20,6 +21,7 @@ app.get("/", (req, res) => {
   res.send("AI Task Priority API is running");
 });
 
+app.use("/api/auth", authRouter);
 app.use("/api/tasks", tasksRouter);
 
 app.listen(PORT, () => {
